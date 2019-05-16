@@ -1,7 +1,9 @@
+export interface Task {
+  fn: Function;
+  processing: boolean;
+}
+
 export default class TaskQueue {
   add(fn: Function): TaskQueue;
-  taskList: Array<{
-    fn: Function;
-    processing: boolean;
-  }>;
+  taskList: Array<Task>;
 }

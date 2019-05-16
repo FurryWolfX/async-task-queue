@@ -1,6 +1,6 @@
 {
   "name": "@wolfx/async-task-queue",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "async task queue manager for nodejs",
   "main": "dist/index.umd.js",
   "typings": "types/index.d.ts",
