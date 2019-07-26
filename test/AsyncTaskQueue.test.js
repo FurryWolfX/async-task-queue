@@ -1,8 +1,13 @@
 function f1() {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("f1 done");
-      resolve();
+      try {
+        a(); // error
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
     }, 1000);
   });
 }
@@ -30,3 +35,7 @@ asyncTaskQueue
   .add(f1)
   .add(f2)
   .add(f3);
+
+setTimeout(() => {
+  asyncTaskQueue.add(f2);
+}, 5000);
