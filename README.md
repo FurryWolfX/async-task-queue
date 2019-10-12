@@ -13,10 +13,15 @@ Functions will run one by one.
 
 ```javascript
 function f1() {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("f1 done");
-      resolve();
+      try {
+        a(); // error
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
     }, 1000);
   });
 }
